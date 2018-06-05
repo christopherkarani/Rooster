@@ -6,19 +6,50 @@
 //  Copyright © 2018 Christopher Brandon Karani. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-/// struct that specifies the endpoint's URL as well as a parsing function that can turn the data from the network into a result with a specific type
-///   budles up information about the endpoint and parse data into type T
-/// - url: The Url endpoint
-/// - parse: The transformation function done on data
-struct Resource<T> {
-    let url: URL
-    let method: HttpMethod<Data>
-    let parse : (Data) -> T?
+/// `Resource` protocol defined how to download and cache a resource from the network
+protocol Resource {
+    associatedtype T
+    /// target Url
+    var url: URL { get }
+    
+    /// The `HttpMethod` are our Http verbs used inside Rooster
+    var method: HttpMethod<Data> { get }
+    
+    /// Transformation on some data returning a type T
+    var parse : (Data) -> T? { get set }
+    
 }
 
 extension Resource {
+    /// The Key used in the cache
+    var cacheKey: String {
+        return "cache" + "\(url.hashValue)" //TODO use sha1
+    }
+}
+
+/// A Resource for retriving Images
+struct ImageResource<UIImage>: Resource {
+    let url: URL
+    var method: HttpMethod<Data>
+    var parse: (Data) -> UIImage?
+}
+
+///
+struct CodableResource<T: Codable>: Resource {
+    let url: URL
+    var method: HttpMethod<Data>
+    var parse: (Data) -> T?
+}
+
+struct JSONResource<T>: Resource {
+    var url: URL
+    var method: HttpMethod<Data>
+    var parse: (Data) -> T?
+}
+
+extension JSONResource {
     ///  initializer that  defaults HttpMethod to `get`, also parses Any Instead of Data
     ///  for convenience purposes
     init(url: URL, parseJSON: @escaping (Any) -> T)  {
@@ -46,17 +77,15 @@ extension Resource {
     }
 }
 
-extension Resource where T: Decodable {
+extension CodableResource where T: Codable {
     /// An initializer for decodable Types
     init(url: URL) {
         self.init(url: url, method: .get) { data in
             return try! JSONDecoder().decode(T.self, from: data)
         }
     }
-}
-
-extension Resource where T: Codable {
-    // An Initializer for encodable types, used for post resources
+    
+    /// An Initializer for encodable types, used for post resources
     init(url: URL, method: HttpMethod<Data>, parseEncodable: @escaping (Data) -> T) {
         self.url = url
         self.method =  method.map { data in
@@ -70,9 +99,4 @@ extension Resource where T: Codable {
     }
 }
 
-extension Resource {
-    var cacheKey: String {
-        return "cache" + "\(url.hashValue)" //TODO use sha1
-    }
-}
 

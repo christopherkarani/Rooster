@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name         = "Rooster"
   s.version      = "0.1"
-  s.summary      = ""
+  s.summary      = "Image Loading and Caching Framework"
   s.description  = <<-DESC
-    Your description here.
+    "Rooster blazing fast framework for downloading and caching images from the web"
   DESC
   s.homepage     = "https://github.com/xrisyz/Rooster.git"
   s.license      = { :type => "MIT", :file => "LICENSE" }
