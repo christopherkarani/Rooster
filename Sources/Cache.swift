@@ -17,14 +17,14 @@ final class Cache {
     var storage = FileStorage()
     
     /// load data from the cache
-    func load<A>(_ resource: Resource<A>) -> A? {
+    func load<A>(_ resource: Resource) -> A? {
         guard case .get = resource.method else { return nil }
         let data = storage[resource.cacheKey]
         return data.flatMap(resource.parse)
     }
     
     /// save data to the cache
-    func save<A>(data: Data, for resource: Resource<A>) {
+    func save(data: Data, for resource: Resource) {
         guard case .get = resource.method else { return }
         storage[resource.cacheKey] = data
     }

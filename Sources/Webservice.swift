@@ -20,6 +20,7 @@ func logError<A>(_ result: Result<A>) {
 }
 
 class Webservice {
+    
     func load<A>(_ resource: Resource<A>, completion: @escaping (Result<A>) -> () ) {
         let request = URLRequest(resource: resource)
         URLSession.shared.dataTask(with: request) { data, response, error in

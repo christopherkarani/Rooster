@@ -29,7 +29,7 @@ final class CachedWebService {
     
     
     /// load data from resource
-    func load<A>(_ resource: Resource<A>, update: @escaping (Result<A>) -> ()) {
+    func load<A>(_ resource: JSONResource<A>, update: @escaping (Result<A>) -> ()) {
 
         // return cached data if any
         if let result = cache.load(resource) {
