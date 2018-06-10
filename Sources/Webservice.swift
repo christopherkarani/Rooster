@@ -19,7 +19,7 @@ func logError<A>(_ result: Result<A>) {
     assert(false, "\(e)")
 }
 
-class Webservice<R: Resource> {
+class Rooster<R: Resource> {
     func load(_ resource: R, completion: @escaping (Result<R.T>) -> ()) {
         let request = URLRequest(resource: resource)
         URLSession.shared.dataTask(with: request) { data, response, error in
