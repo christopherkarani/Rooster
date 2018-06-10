@@ -9,7 +9,7 @@
 import Foundation
 
 extension URLRequest {
-    init<A>(resource: Resource<A>) {
+    init<R: Resource>(resource: R) {
         self.init(url: resource.url)
         self.httpMethod = resource.method.description
     }

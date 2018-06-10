@@ -16,21 +16,20 @@ import Foundation
  -parameters:
     -webservice: An Instance of the Webservice Class
  */
-final class CachedWebService {
-    let webservice: Webservice
-    let cache : Cache
+final class CachedWebService<R : Resource> {
+    let webservice: Webservice<R>
+    let cache : Cache<R>
     
     
     
-    init(_ webservice: Webservice, cache: Cache = Cache()) {
+    init(_ webservice: Webservice<R>, cache: Cache<R> = Cache()) {
         self.webservice = webservice
         self.cache = cache
     }
     
     
     /// load data from resource
-    func load<A>(_ resource: JSONResource<A>, update: @escaping (Result<A>) -> ()) {
-
+    func load(_ resource: R, update: @escaping (Result<R.T>) -> ()) {
         // return cached data if any
         if let result = cache.load(resource) {
             print("Cache Hit")
@@ -40,7 +39,5 @@ final class CachedWebService {
         // In any case hit the end point
         webservice.load(resource, completion: update)
     }
-    
-
 }
 
