@@ -19,7 +19,7 @@ protocol Resource {
     
     /// Transformation on some data returning a type T
     var parse : (Data) -> T? { get set }
-    
+      
 }
 
 extension Resource {
