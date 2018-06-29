@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum HttpMethod<Body> {
+public enum HttpMethod<Body> {
     case get
     case post(Body)
 }
@@ -16,7 +16,7 @@ enum HttpMethod<Body> {
 extension HttpMethod: CustomStringConvertible {
     /// returns the textual debug representation of HttpMethod, and wether or not the value is a post
     /// or get
-    var description: String {
+    public var description: String {
         switch self {
         case .get: return "GET"
         case .post: return "POST"
@@ -27,7 +27,7 @@ extension HttpMethod: CustomStringConvertible {
 extension HttpMethod: CustomDebugStringConvertible {
     /// returns the textual debug representation of HttpMethod, and wether or not the value is a post
     /// or get, and the associated value inside post or simple get.
-    var debugDescription: String {
+    public var debugDescription: String {
         switch self {
         case .get: return "GET"
         case .post(let body): return "POST: \(body)"

@@ -1,14 +1,12 @@
 Pod::Spec.new do |s|
   s.name         = "Rooster"
-  s.version      = "0.1.1"
+  s.version      = "0.1.2"
   s.summary      = "Image Loading and Caching Framework"
-  s.description  = <<-DESC
-    "Rooster blazing fast framework for downloading and caching images from the web"
-  DESC
+  s.description  = "Rooster blazing fast framework for downloading and caching images from the web"
   s.homepage     = "https://github.com/xrisyz/Rooster.git"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "Christopher Karani" => "chrisbkarani@gmail.com" }
-  s.social_media_url   = ""
+  s.social_media_url   = "https://twitter.com/cbkarani"
   s.ios.deployment_target = "8.0"
   s.osx.deployment_target = "10.9"
   s.watchos.deployment_target = "2.0"

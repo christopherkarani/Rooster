@@ -8,8 +8,6 @@
 
 import Foundation
 
-import Foundation
-
 enum WebserviceError: Error {
     case notAuthenticated
     case other
@@ -27,10 +25,9 @@ class Rooster<R: Resource> {
         URLSession.shared.dataTask(with: request) { data, response, error in
             let result: Result<R.T>
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 401 {
-                result = Result.init(WebserviceError.notAuthenticated)
+                result = Result(WebserviceError.notAuthenticated)
             } else {
                 let parsed = data.flatMap (resource.parse)
-                
                 result = Result(value: parsed, or: WebserviceError.other)
             }
             DispatchQueue.main.async { completion(result) }

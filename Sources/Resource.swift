@@ -6,20 +6,21 @@
 //  Copyright © 2018 Christopher Brandon Karani. All rights reserved.
 //
 
-import UIKit
+import Foundation
+
 
 /// `Resource` protocol defined how to download and cache a resource from the network
-protocol Resource {
-    associatedtype T
+public protocol Resource {
     /// target Url
     var url: URL { get }
     
     /// The `HttpMethod` are our Http verbs used inside Rooster
     var method: HttpMethod<Data> { get }
     
+    associatedtype T
+    
     /// Transformation on some data returning a type T
-    var parse : (Data) -> T? { get set }
-      
+    var parse : (Data) -> T? { get }
 }
 
 extension Resource {
@@ -98,5 +99,7 @@ extension CodableResource where T: Codable {
         }
     }
 }
+
+
 
 
