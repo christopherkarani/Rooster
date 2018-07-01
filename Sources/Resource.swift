@@ -31,23 +31,24 @@ extension Resource {
 }
 
 /// A Resource for retriving Images
-struct ImageResource<UIImage>: Resource {
-    let url: URL
-    var method: HttpMethod<Data>
-    var parse: (Data) -> UIImage?
+public struct ImageResource<UIImage>: Resource {
+    public let url: URL
+    public var method: HttpMethod<Data>
+    public var parse: (Data) -> UIImage?
 }
 
-///
-struct CodableResource<T: Codable>: Resource {
-    let url: URL
-    var method: HttpMethod<Data>
-    var parse: (Data) -> T?
+/// A Resource For Codable Objects
+public struct CodableResource<T: Codable>: Resource {
+    public let url: URL
+    public var method: HttpMethod<Data>
+    public var parse: (Data) -> T?
 }
 
-struct JSONResource<T>: Resource {
-    var url: URL
-    var method: HttpMethod<Data>
-    var parse: (Data) -> T?
+/// A Resource For JSON Objects
+public struct JSONResource<T>: Resource {
+    public var url: URL
+    public var method: HttpMethod<Data>
+    public var parse: (Data) -> T?
 }
 
 extension JSONResource {

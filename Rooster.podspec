@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Rooster"
-  s.version      = "0.1.2"
+  s.version      = "0.1.3"
   s.summary      = "Image Loading and Caching Framework"
   s.description  = "Rooster blazing fast framework for downloading and caching images from the web"
   s.homepage     = "https://github.com/xrisyz/Rooster.git"
@@ -11,7 +11,9 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = "10.9"
   s.watchos.deployment_target = "2.0"
   s.tvos.deployment_target = "9.0"
-  s.source       = { :git => "https://github.com/xrisyz/Rooster.git.git", :tag => s.version.to_s }
+  s.source       = { :git => "https://github.com/xrisyz/Rooster.git", :tag => s.version.to_s }
   s.source_files  = "Sources/**/*"
   s.frameworks  = "Foundation"
+
+  s.swift_version = '4.0'
 end
