@@ -40,6 +40,33 @@ extension Result {
             self = .failure(error)
         }
     }
+    
+    
+    /// Creates a `Result` instance from the result of a closure.
+    ///
+    /// A failure result is created when the closure throws, and a success result is created when the closure
+    /// succeeds without throwing an error.
+    ///
+    ///     func someString() throws -> String { ... }
+    ///
+    ///     let result = Result(value: {
+    ///         return try someString()
+    ///     })
+    ///
+    ///     // The type of result is Result<String>
+    ///
+    /// The trailing closure syntax is also supported:
+    ///
+    ///     let result = Result { try someString() }
+    ///
+    /// - parameter value: The closure to execute and create the result for.
+    public init(value: () throws -> Value) {
+        do {
+            self = try .success(value())
+        } catch {
+            self = .failure(error)
+        }
+    }
 }
 
 extension Result: CustomStringConvertible {
@@ -85,6 +112,26 @@ extension Result {
     public var isFailure: Bool {
         guard case .failure = self else { return false }
         return true
+    }
+}
+
+extension Result {
+    /// Returns the success value, or throws the failure error.
+    ///
+    ///     let possibleString: Result<String> = .success("success")
+    ///     try print(possibleString.unwrap())
+    ///     // Prints "success"
+    ///
+    ///     let noString: Result<String> = .failure(error)
+    ///     try print(noString.unwrap())
+    ///     // Throws error
+    func unwrap() throws -> Value {
+        switch self {
+        case .success(let value):
+            return value
+        case .failure(let error):
+            throw error
+        }
     }
 }
 

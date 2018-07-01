@@ -1,3 +1,5 @@
+
+
 //
 //  Rooster.swift
 //  C.K
@@ -8,7 +10,8 @@
 
 import Foundation
 
-enum WebserviceError: Error {
+
+enum RoostError: Error {
     case notAuthenticated
     case other
     case general(String)
@@ -19,16 +22,17 @@ func logError<A>(_ result: Result<A>) {
     assert(false, "\(e)")
 }
 
-class Rooster<R: Resource> {
+
+public final class Roost<R: Resource> {
     func load(_ resource: R, completion: @escaping (Result<R.T>) -> ()) {
         let request = URLRequest(resource: resource)
         URLSession.shared.dataTask(with: request) { data, response, error in
             let result: Result<R.T>
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 401 {
-                result = Result(WebserviceError.notAuthenticated)
+                result = Result(RoostError.notAuthenticated)
             } else {
                 let parsed = data.flatMap (resource.parse)
-                result = Result(value: parsed, or: WebserviceError.other)
+                result = Result(value: parsed, or: RoostError.other)
             }
             DispatchQueue.main.async { completion(result) }
             }.resume()
