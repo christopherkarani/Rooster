@@ -49,12 +49,15 @@ public struct JSONResource<T>: Resource {
     public var url: URL
     public var method: HttpMethod<Data>
     public var parse: (Data) -> T?
+    public var item: T?
 }
+
+
 
 extension JSONResource {
     ///  initializer that  defaults HttpMethod to `get`, also parses Any Instead of Data
     ///  for convenience purposes
-    init(url: URL, parseJSON: @escaping (Any) -> T)  {
+    public init(url: URL, parseJSON: @escaping (Any) -> T)  {
         self.url = url
         self.method = .get
         self.parse = { data in
@@ -67,7 +70,7 @@ extension JSONResource {
     /// - url: The Endpoint URL
     /// - method: The HttpMethod to be used.
     /// - parseJson: The transformation don on object to json
-    init(_ url: URL, method: HttpMethod<Any>, parseJSON: @escaping (Any) -> T) throws {
+    public init(_ url: URL, method: HttpMethod<Any>, parseJSON: @escaping (Any) -> T) throws {
         self.url = url
         self.method = try method.map { json in
            try JSONSerialization.data(withJSONObject: json, options: [])
@@ -75,6 +78,32 @@ extension JSONResource {
         self.parse = { data in
             let json = try? JSONSerialization.jsonObject(with: data, options: [])
             return json.flatMap(parseJSON)
+        }
+    }
+}
+
+extension JSONResource where T: Codable {
+    public init( _ url : URL, method: HttpMethod<Data> = .get)  {
+        self.url = url
+        self.method = method
+        self.parse = { data in
+            let decoder = JSONDecoder()
+            let item = try? decoder.decode(T.self, from: data)
+            return item
+        }
+    }
+    
+    public init( _ url : URL)   {
+        self.url = url
+        self.method = .get
+        self.parse = { data in
+            let decoder = JSONDecoder()
+            do {
+                 let item = try decoder.decode(T.self, from: data)
+                return item
+            } catch {
+                return nil
+            }
         }
     }
 }

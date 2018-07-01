@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1829749C20E8DC8800218E41 /* Rooster.sswift in Sources */ = {isa = PBXBuildFile; fileRef = 1829749B20E8DC8800218E41 /* Rooster.sswift */; };
+		1829749C20E8DC8800218E41 /* Rooster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1829749B20E8DC8800218E41 /* Rooster.swift */; };
 		186EC44020C48ED400822214 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186EC43920C48ED000822214 /* Result.swift */; };
 		186EC44120C48ED400822214 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186EC43920C48ED000822214 /* Result.swift */; };
 		186EC44220C48ED400822214 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186EC43920C48ED000822214 /* Result.swift */; };
@@ -94,7 +94,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1829749B20E8DC8800218E41 /* Rooster.sswift */ = {isa = PBXFileReference; lastKnownFileType = text; path = Rooster.sswift; sourceTree = "<group>"; };
+		1829749B20E8DC8800218E41 /* Rooster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rooster.swift; sourceTree = "<group>"; };
 		186EC43920C48ED000822214 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		186EC43A20C48ED100822214 /* FileStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
 		186EC43B20C48ED100822214 /* CachedWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedWebService.swift; sourceTree = "<group>"; };
@@ -215,7 +215,7 @@
 				186EC43920C48ED000822214 /* Result.swift */,
 				186EC43F20C48ED300822214 /* URLRequest_Ext.swift */,
 				8933C7841EB5B820000D00A4 /* Roost.swift */,
-				1829749B20E8DC8800218E41 /* Rooster.sswift */,
+				1829749B20E8DC8800218E41 /* Rooster.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -412,7 +412,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = C.K;
 				TargetAttributes = {
 					52D6D97B1BEFF229002C0205 = {
@@ -529,7 +529,7 @@
 				186EC44E20C48ED400822214 /* CachedWebService.swift in Sources */,
 				186EC45520C48ED400822214 /* Cache.swift in Sources */,
 				186EC46A20C48ED400822214 /* URLRequest_Ext.swift in Sources */,
-				1829749C20E8DC8800218E41 /* Rooster.sswift in Sources */,
+				1829749C20E8DC8800218E41 /* Rooster.swift in Sources */,
 				186EC46320C48ED400822214 /* HttpMethod.swift in Sources */,
 				186EC44020C48ED400822214 /* Result.swift in Sources */,
 				8933C7851EB5B820000D00A4 /* Roost.swift in Sources */,
@@ -660,12 +660,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -717,12 +719,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

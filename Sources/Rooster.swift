@@ -30,34 +30,34 @@ import WatchKit
 #endif
 
 
-public final class Roost<Base> {
-    let base: Base
-    
-    public init(_ base: Base) {
-        self.base = base
-    }
-}
+//public final class Roost<Base> {
+//    let base: Base
+//
+//    public init(_ base: Base) {
+//        self.base = base
+//    }
+//}
 
 /**
  A Type that has Rooster Extensions
  */
 
-public protocol RoosterCompatible {
-    associatedtype CompatibleType
-    var kf : CompatibleType { get }
-}
-
-public extension RoosterCompatible {
-    public var rs: Roost<Self> {
-        return Roost(self)
-    }
-}
-
-
-extension Image: RoosterCompatible { }
-#if !os(watchOS)
-extension ImageView: RoosterCompatible { }
-extension Button: RoosterCompatible { }
-#else
-extension WKInterfaceImage: RoosterCompatible { }
-#endif
+//public protocol RoosterCompatible {
+//    associatedtype CompatibleType
+//    var kf : CompatibleType { get }
+//}
+//
+//public extension RoosterCompatible {
+//    public var rs: Roost<Self> {
+//        return Roost(self)
+//    }
+//}
+//
+//
+//extension Image: RoosterCompatible { }
+//#if !os(watchOS)
+//extension ImageView: RoosterCompatible { }
+//extension Button: RoosterCompatible { }
+//#else
+//extension WKInterfaceImage: RoosterCompatible { }
+//#endif

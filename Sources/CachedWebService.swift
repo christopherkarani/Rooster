@@ -17,12 +17,12 @@ import Foundation
     -webservice: An Instance of the Webservice Class
  */
 final class CachedWebService<R : Resource> {
-    let webservice: Rooster<R>
+    let webservice: Roost<R>
     let cache : Cache<R>
     
     
     
-    init(_ webservice: Rooster<R>, cache: Cache<R> = Cache()) {
+    init(_ webservice: Roost<R>, cache: Cache<R> = Cache()) {
         self.webservice = webservice
         self.cache = cache
     }
