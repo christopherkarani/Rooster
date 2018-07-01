@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Rooster"
-  s.version      = "0.1.3"
+  s.version      = "0.1.4"
   s.summary      = "Image Loading and Caching Framework"
   s.description  = "Rooster blazing fast framework for downloading and caching images from the web"
   s.homepage     = "https://github.com/xrisyz/Rooster.git"
