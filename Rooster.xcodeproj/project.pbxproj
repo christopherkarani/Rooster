@@ -57,6 +57,8 @@
 		186EC47620C48EDA00822214 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186EC47120C48EDA00822214 /* Resource.swift */; };
 		186EC47720C48EDA00822214 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186EC47120C48EDA00822214 /* Resource.swift */; };
 		186EC47820C48EDA00822214 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186EC47120C48EDA00822214 /* Resource.swift */; };
+		18FC38BC20EA080D0098D5E4 /* RoostError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FC38BB20EA080D0098D5E4 /* RoostError.swift */; };
+		18FC38BE20EA098E0098D5E4 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FC38BD20EA098E0098D5E4 /* HTTPStatusCode.swift */; };
 		52D6D9871BEFF229002C0205 /* Rooster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* Rooster.framework */; };
 		8933C7851EB5B820000D00A4 /* Roost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7841EB5B820000D00A4 /* Roost.swift */; };
 		8933C7861EB5B820000D00A4 /* Roost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7841EB5B820000D00A4 /* Roost.swift */; };
@@ -102,6 +104,8 @@
 		186EC43E20C48ED300822214 /* HttpMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		186EC43F20C48ED300822214 /* URLRequest_Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequest_Ext.swift; sourceTree = "<group>"; };
 		186EC47120C48EDA00822214 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		18FC38BB20EA080D0098D5E4 /* RoostError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoostError.swift; sourceTree = "<group>"; };
+		18FC38BD20EA098E0098D5E4 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
 		52D6D97C1BEFF229002C0205 /* Rooster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Rooster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9861BEFF229002C0205 /* Rooster-iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rooster-iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9E21BEFFF6E002C0205 /* Rooster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Rooster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,6 +220,8 @@
 				186EC43F20C48ED300822214 /* URLRequest_Ext.swift */,
 				8933C7841EB5B820000D00A4 /* Roost.swift */,
 				1829749B20E8DC8800218E41 /* Rooster.swift */,
+				18FC38BB20EA080D0098D5E4 /* RoostError.swift */,
+				18FC38BD20EA098E0098D5E4 /* HTTPStatusCode.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -529,10 +535,12 @@
 				186EC44E20C48ED400822214 /* CachedWebService.swift in Sources */,
 				186EC45520C48ED400822214 /* Cache.swift in Sources */,
 				186EC46A20C48ED400822214 /* URLRequest_Ext.swift in Sources */,
+				18FC38BC20EA080D0098D5E4 /* RoostError.swift in Sources */,
 				1829749C20E8DC8800218E41 /* Rooster.swift in Sources */,
 				186EC46320C48ED400822214 /* HttpMethod.swift in Sources */,
 				186EC44020C48ED400822214 /* Result.swift in Sources */,
 				8933C7851EB5B820000D00A4 /* Roost.swift in Sources */,
+				18FC38BE20EA098E0098D5E4 /* HTTPStatusCode.swift in Sources */,
 				186EC44720C48ED400822214 /* FileStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
