@@ -8,6 +8,32 @@
 
 import Foundation
 
+// in the works
+//public protocol ResultProtocol {
+//
+//    associatedtype Value
+//    init(value: Value)
+//    init(error: Error)
+//    var result: Result<Value> { get}
+//}
+//
+//extension ResultProtocol {
+//    public var result: Result<() throws -> Value> {
+//        switch result {
+//        case .success(let value):
+//            return Result(value)
+//        }
+//    }
+//}
+
+// lets try create a protocol for the result type
+
+
+//-----------------------
+
+
+
+
 /// Used to represent whether a request was successful or encountered an error.
 ///
 /// - success: The request and all post processing operations were successful resulting in the serialization of the
@@ -15,7 +41,8 @@ import Foundation
 ///
 /// - failure: The request encountered an error resulting in a failure. The associated values are the original data
 ///            provided by the server as well as the error that caused the failure.
-public enum Result<Value> {
+public enum Result<Value>{
+
     case success(Value)
     case failure(Error)
 }
@@ -28,7 +55,7 @@ extension Result {
     }
     
     /// Initialize a failure result with an Error contained
-    public init(_ error: Error) {
+    public init(error: Error) {
         self = .failure(error)
     }
     
@@ -186,6 +213,28 @@ extension Result {
         case .failure(let error):
             return .failure(error)
         }
+    }
+}
+
+
+
+/// Convinience method for decodable types
+extension Result where Value == Data {
+    func decoded<T: Decodable>() throws -> T {
+        let decoder = JSONDecoder()
+        let data = try unwrap()
+        return try decoder.decode(T.self, from: data)
+    }
+    
+
+    
+    func encoded<T: Codable>() throws -> Result<T> {
+        let decoder = JSONDecoder()
+        let data = try unwrap()
+        let obj = try decoder.decode(T.self, from: data)
+        let encoder = JSONEncoder()
+        let encoded = try encoder.encode(obj)
+        return  .success(data)
     }
 }
 

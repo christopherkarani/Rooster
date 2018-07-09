@@ -17,7 +17,7 @@ public final class Roost<R: Resource> {
             let result: Result<R.T>
             if let httpResponse = response as? HTTPURLResponse {
                 let code =  HTTPStatusCode(statusCode:  httpResponse.statusCode)
-                result = Result(RoostError.statusCodeError(code.statusDescription))
+                result = Result(error: RoostError.statusCodeError(code.statusDescription))
             } else {
                 let parsed = data.flatMap (resource.parse)
                 result = Result(value: parsed, or: RoostError.other)
